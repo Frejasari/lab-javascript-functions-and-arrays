@@ -141,7 +141,10 @@ function greatestProduct(matrix) {
     for (var j = 0; j < currentRow.length - 4; j++) {
       if (currentRow[j] === 0) j += 5;
       // continue;
-      if (currentRow[j] < currentRow[j + 4]) {
+      if (
+        currentRow[j] < currentRow[j + 4] &&
+        greatesProductRow < getProductFromArray(currentRow, 4, j + 1)
+      ) {
         greatesProductRow = getProductFromArray(currentRow, 4, j + 1);
       }
     }
@@ -155,7 +158,7 @@ function greatestProduct(matrix) {
       if (matrix[j][i] === 0) {
         j += 4;
       } else {
-        if (matrix[j][i] < matrix[j + 4][i]) {
+        if (matrix[j][i] < matrix[j + 4][i] && greatesProductCol < getProductFromCol(matrix, 4, i, j + 1) {
           greatesProductCol = getProductFromCol(matrix, 4, i, j + 1);
         }
       }
